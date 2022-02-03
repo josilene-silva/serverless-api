@@ -5,6 +5,7 @@ frameworkVersion: '3'
 useDotenv: true
 
 plugins:
+  - serverless-offline
   - serverless-esbuild
 
 custom:
@@ -21,3 +22,18 @@ custom:
 provider:
   name: aws
   runtime: nodejs14.x
+  environment:
+    COUNTAPI_NAMESPACE: ${env:COUNTAPI_NAMESPACE}
+    COUNTAPI_KEY: ${env:COUNTAPI_KEY}
+
+package:
+  individually: true
+
+functions:
+  consultAccess:
+    handler: src/functions/consultAccess.handler
+    events:
+    - http:
+        path: /consultAccess
+        method: GET
+        cors: true
