@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "lib": ["ESNext"],
     "moduleResolution": "node",
@@ -10,15 +9,12 @@
     "target": "ES2020",
     "outDir": "lib"
   },
-  "include": ["src/**/*.ts", "serverless.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
-    ".webpack/**/*",
+    ".esbuild/**/*",
     "_warmup/**/*",
     ".vscode/**/*"
-  ],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+  ]
 }

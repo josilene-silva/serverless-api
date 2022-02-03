@@ -1,0 +1,23 @@
+service: testeserverless
+
+frameworkVersion: '3'
+
+useDotenv: true
+
+plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    exclude:
+     - aws-sdk
+    target: node14
+    platform: node
+    concurrency: 10
+
+provider:
+  name: aws
+  runtime: nodejs14.x
