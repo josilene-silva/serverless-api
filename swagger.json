@@ -130,6 +130,8 @@
         "/profileUser/{id}": {
             "get": {
                 "tags": ["User"],
+                "summary": "Get the profile user",
+                "description": "Get the profile user",
                 "parameters": [
                     {
                         "name": "id",
