@@ -60,6 +60,13 @@ functions:
         path: /createUser
         method: POST
         cors: true
+  profileUser:
+    handler: src/functions/profileUser.handler
+    events:
+    - http:
+        path: /profileUser/{id}
+        method: GET
+        cors: true
 
 resources:
   Resources:
