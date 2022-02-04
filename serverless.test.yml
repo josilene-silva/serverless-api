@@ -1,0 +1,13 @@
+- name: consult access with consult API return code 200
+  endpoint:
+    function: consultAccess
+  response:
+    status: 200
+
+- name: increase access with consult API return code 200
+  endpoint:
+    function: increaseAccess
+  response:
+    status: 200
+    body:
+      message: "Increased access"

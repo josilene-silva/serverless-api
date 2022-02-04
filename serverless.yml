@@ -1,3 +1,5 @@
+org: josilene
+app: serverless-api
 service: serverless-api
 
 frameworkVersion: '3'
