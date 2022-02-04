@@ -31,6 +31,19 @@ custom:
 provider:
   name: aws
   runtime: nodejs14.x
+  region: sa-east-1
+  iam:
+    role:
+      name: serverless-api-dynamodb-access
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource: "*"
+        - Effect: Allow
+          Action:
+            - s3:*
+          Resource: "*"
   environment:
     COUNTAPI_NAMESPACE: ${env:COUNTAPI_NAMESPACE}
     COUNTAPI_KEY: ${env:COUNTAPI_KEY}
@@ -70,7 +83,7 @@ functions:
 
 resources:
   Resources:
-    dbUsersTest:
+    dbUsers:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: users
