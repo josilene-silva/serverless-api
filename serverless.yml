@@ -1,4 +1,4 @@
-service: testeserverless
+service: serverless-api
 
 frameworkVersion: '3'
 
@@ -53,3 +53,26 @@ functions:
         path: /increaseAccess
         method: POST
         cors: true
+  createUser:
+    handler: src/functions/createUser.handler
+    events:
+    - http:
+        path: /createUser
+        method: POST
+        cors: true
+
+resources:
+  Resources:
+    dbUsersTest:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: users
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
