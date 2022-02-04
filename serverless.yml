@@ -37,3 +37,10 @@ functions:
         path: /consultAccess
         method: GET
         cors: true
+  increaseAccess:
+    handler: src/functions/increaseAccess.handler
+    events:
+    - http:
+        path: /increaseAccess
+        method: POST
+        cors: true
