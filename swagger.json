@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "dev-serverless-api",
+        "description": "Serverless API documentation from https://github.com/josilene-silva/serverless-api"
+    },
+    "host": "ija7ql5r4e.execute-api.sa-east-1.amazonaws.com",
+    "basePath": "/dev",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/consultAccess": {
+            "get": {
+                "tags": ["Access"],
+                "summary": "Check the number of access",
+                "description": "Check the number of access",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "access": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createUser": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Create a new user",
+                "description": "Create a new user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "test",
+                        "description": "The user to create",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "name": "Test Swagger",
+                                "email": "testswagger@gmail.com"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "/increaseAccess": {
+            "post": {
+                "tags": ["Access"],
+                "summary": "Increase the number of access",
+                "description": "Increase the number of access",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "message": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error increase access"
+                    }
+                }
+            }
+        },
+        "/profileUser/{id}": {
+            "get": {
+                "tags": ["User"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    }
+}
