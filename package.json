@@ -23,6 +23,7 @@
     "esbuild": "^0.14.11",
     "jest": "^27.4.7",
     "serverless": "^3.0.0",
+    "serverless-dynamodb-local": "^0.2.40",
     "serverless-esbuild": "^1.23.3",
     "serverless-offline": "^8.4.0",
     "ts-jest": "^27.1.3",

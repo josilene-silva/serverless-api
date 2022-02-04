@@ -7,6 +7,7 @@ useDotenv: true
 plugins:
   - serverless-offline
   - serverless-esbuild
+  - serverless-dynamodb-local
 
 custom:
   esbuild:
@@ -18,6 +19,14 @@ custom:
     target: node14
     platform: node
     concurrency: 10
+  dynamodb:
+    stages:
+      - dev
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
 
 provider:
   name: aws
