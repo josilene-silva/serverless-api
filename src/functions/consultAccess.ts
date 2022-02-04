@@ -1,5 +1,4 @@
-import { APIGatewayProxyHandler } from "aws-lambda";
-
+import { APIGatewayProxyHandler } from 'aws-lambda';
 import countapi from 'countapi-js';
 
 const NAMESPACE = process.env.COUNTAPI_NAMESPACE;
@@ -25,7 +24,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
         return {
             statusCode: 500,
             body: JSON.stringify({
-                message: "Error on consult access",
+                message: 'Error on consult access',
                 error: error
             })
         }
